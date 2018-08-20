@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class SimpleFactoryApplication {
+    private final static String messageContent = "发送的消息内容";
 
     public static void main(String[] args) {
         SpringApplication.run(SimpleFactoryApplication.class, args);
@@ -18,20 +19,17 @@ public class SimpleFactoryApplication {
     }
 
     private static void sendSMSMessageTest() {
-        String smsMessage = "测试发送短信消息";
         IMsgSender msgSender = MessageSendFactory.getSender(SendType.SMS);
-        msgSender.sendMessage(smsMessage);
+        msgSender.sendMessage(messageContent);
     }
 
     private static void sendWeChatMessageTest() {
-        String weChatMessage = "测试发送微信消息";
         IMsgSender msgSender = MessageSendFactory.getSender(SendType.WECHAT);
-        msgSender.sendMessage(weChatMessage);
+        msgSender.sendMessage(messageContent);
     }
 
     private static void sendQQMessageTest() {
-        String qqMessage = "测试发送qq消息";
         IMsgSender msgSender = MessageSendFactory.getSender(SendType.QQ);
-        msgSender.sendMessage(qqMessage);
+        msgSender.sendMessage(messageContent);
     }
 }
