@@ -4,7 +4,6 @@ package cn.zhangyuying.designpattern.facade;
  * @author zyy.
  */
 public class MsgContants {
-    public static final String TYPE = "type";
 
     public static final String QQ = "QQ";
 
