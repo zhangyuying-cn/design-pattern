@@ -5,6 +5,7 @@ import cn.zhangyuying.designpattern.adapter.SignalSender;
 
 /**
  * @author zyy.
+ * java中没有多继承，类适配器模式发挥的作用不是很大
  */
 public class SignalClassAdapter extends MsgSender implements SignalSender {
     @Override
