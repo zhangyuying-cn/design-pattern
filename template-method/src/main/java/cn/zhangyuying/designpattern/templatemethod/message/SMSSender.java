@@ -29,6 +29,14 @@ public class SMSSender extends MsgTemplate {
         logger.error("发送短信消息成功");
     }
 
+    /**
+     * @return 回执
+     */
+    @Override
+    protected boolean needFeedback() {
+        return true;
+    }
+
     private void getSMSClient() {
         logger.error("获取到短信消息客户端！");
     }

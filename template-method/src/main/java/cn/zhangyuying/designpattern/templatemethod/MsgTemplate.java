@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
  * 1.校验参数是否正确
  * 2.消息存入到本地数据库
  * 3.发送消息
+ * 4.回执：是否成功（钩子，是否需要回执由子类选择）
  */
 public abstract class MsgTemplate {
     /** logger */
@@ -18,6 +19,9 @@ public abstract class MsgTemplate {
         checkMessage(message);
         save2DB(message);
         send();
+        if (needFeedback()) {
+            feedback();
+        }
     }
 
     protected abstract void checkMessage(String meaage);
@@ -27,5 +31,13 @@ public abstract class MsgTemplate {
     }
 
     protected abstract void send();
+
+    protected boolean needFeedback() {
+        return false;
+    }
+
+    private void feedback() {
+        logger.error("message status!");
+    }
 
 }
