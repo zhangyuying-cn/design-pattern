@@ -33,6 +33,7 @@ public class CommandApplication {
 
         //创建 请求者：当前场景为遥控器
         RemoteControl remoteControl = new RemoteControl();
+        //为请求者设置可执行的命令
         remoteControl.addCommand(TVOperation.ON, onCommand);
         remoteControl.addCommand(TVOperation.NEXT, nextCommand);
         remoteControl.addCommand(TVOperation.PREVIOUS, previousCommand);
