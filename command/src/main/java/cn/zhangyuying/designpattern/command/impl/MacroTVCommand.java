@@ -1,26 +1,18 @@
 package cn.zhangyuying.designpattern.command.impl;
 
 import cn.zhangyuying.designpattern.command.Command;
-import cn.zhangyuying.designpattern.command.MacroCommand;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author zyy.
  */
-public class MacroTVCommand implements MacroCommand {
+public class MacroTVCommand implements Command {
 
-    private List<Command> commands = new ArrayList<>();
+    private List<Command> commands;
 
-    @Override
-    public void addCommand(Command command) {
-        commands.add(command);
-    }
-
-    @Override
-    public void removeCommand(Command command) {
-        commands.remove(command);
+    public MacroTVCommand(List<Command> commands) {
+        this.commands = commands;
     }
 
     @Override
@@ -30,4 +22,17 @@ public class MacroTVCommand implements MacroCommand {
         }
     }
 
+    @Override
+    public void undo() {
+        for (Command command : commands) {
+            command.undo();
+        }
+    }
+
+    @Override
+    public void redo() {
+        for (Command command : commands) {
+            command.redo();
+        }
+    }
 }

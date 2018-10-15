@@ -24,11 +24,13 @@ public class TVReceiver implements Receiver {
     @Override
     public void on() {
         tv.setOn(true);
+        logger.info("打开电视机");
     }
 
     @Override
     public void close() {
         tv.setOn(false);
+        logger.info("关闭电视机");
     }
 
     @Override
@@ -42,6 +44,7 @@ public class TVReceiver implements Receiver {
             return;
         }
         tv.setCurrent(tv.getCurrent() + 1);
+        logger.info("进入下一个频道");
     }
 
     @Override
@@ -55,6 +58,7 @@ public class TVReceiver implements Receiver {
             return;
         }
         tv.setCurrent(tv.getCurrent() - 1);
+        logger.info("回到前一个频道");
     }
 
     @Override
@@ -65,6 +69,7 @@ public class TVReceiver implements Receiver {
         int current = tv.getCurrent();
         tv.setCurrent(tv.getHistory());
         tv.setHistory(current);
+        logger.info("回到前一步");
     }
 
     @Override
