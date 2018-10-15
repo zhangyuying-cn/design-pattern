@@ -18,7 +18,7 @@ public class RemoteControl {
 
     public void commandExecute(TVOperation operation) {
         if (commandMap.get(operation) == null) {
-            throw new IllegalArgumentException("现有要控制不支持此命令！");
+            throw new IllegalArgumentException("遥控器不存在此命令！");
         }
         commandMap.get(operation).execute();
     }
