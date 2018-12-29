@@ -6,18 +6,18 @@ import java.util.List;
 /**
  * @author zyy.
  */
-public class MessageStructure {
+class MessageStructure {
     private List<MessageElement> messageElements;
 
-    public MessageStructure() {
+    MessageStructure() {
         this.messageElements = new ArrayList<>();
     }
 
-    public void addMessageElement(MessageElement messageElement) {
+    void addMessageElement(MessageElement messageElement) {
         messageElements.add(messageElement);
     }
 
-    public void setMessageProperties(IMessageVisitor messageVisitor) {
+    void setMessageProperties(IMessageVisitor messageVisitor) {
         for (MessageElement messageElement : messageElements) {
             messageElement.accept(messageVisitor);
         }
